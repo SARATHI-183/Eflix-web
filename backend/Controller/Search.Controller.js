@@ -15,7 +15,7 @@ export async function searchPerson(req , res) {
                     id:response.results[0].id,
                     image:response.results[0].profile_path,
                     title:response.results[0].name,
-                    serachType:"person",
+                    searchType:"person",
                     createdAt: new Date(),
                 },
             },
@@ -44,7 +44,7 @@ export async function searchMovie(req , res) {
                     id:response.results[0].id,
                     image:response.results[0].poster_path,
                     title:response.results[0].title,
-                    serachType:"movie",
+                    searchType:"movie",
                     createdAt: new Date(),
                 },
             },
@@ -71,7 +71,7 @@ export async function searchTv(req , res) {
                     id:response.results[0].id,
                     image:response.results[0].poster_path,
                     title:response.results[0].name,
-                    serachType:"tv",
+                    searchType:"tv",
                     createdAt: new Date(),
                 },
             },
@@ -99,7 +99,7 @@ export async function removeItemFromSearchHistory(req , res) {
     try {
         await User.findByIdAndUpdate(req.user._id,{
             $pull:{
-                searchHistory:{ id:id},
+                searchHistory:{ id: id},
             }
         });
 

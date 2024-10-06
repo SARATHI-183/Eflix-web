@@ -57,7 +57,7 @@ export  async function signup(req ,res ){
 
     } catch (error) {
         console.error("Error in signup controller",error.message);
-        return res.status(500).json({success:false,message:"Internal server error"});
+        res.status(500).json({success:false,message:"Internal server error"});
     }
 }
 
@@ -73,13 +73,13 @@ export  async function login(req ,res ){
         const user = await User.findOne({email:email})
 
         if(!user){
-            res.status(400).json({success:false,message:"Invalid credentials"});
+            return res.status(400).json({success:false,message:"Invalid credentials"});
         }
-
+        
         const isPasswordCorrect = await bcyrpt.compare( password ,user.password);
 
         if(!isPasswordCorrect){
-            res.status(400).json({success:false,message:"Invalid credentials"});
+            return res.status(400).json({success:false,message:"Invalid credentials"});
         }
 
         generateTokenAndSetCookie(user._id, res);
@@ -94,7 +94,7 @@ export  async function login(req ,res ){
 
     } catch (error) {
         console.error("Error in login controller",error.message);
-        return res.status(500).json({success:false,message:"Internal server error"});
+        res.status(500).json({success:false,message:"Internal server error"});
     }
 }
 
@@ -104,14 +104,13 @@ export  async function logout(req ,res ){
         res.status(200).json({success:true,message:"Logged out successfully"})
     } catch (error) {
         console.error("Error in logout controller",error.message);
-        return res.status(500).json({success:false,message:"Internal server error"});
+        res.status(500).json({success:false,message:"Internal server error"});
     }
 }
 
 
 export async function authCheck(req , res){
     try {
-        console.log("req.user",req.user);
         res.status(200).json({ success : true, user: req.user });
     } catch (error) {
         console.log("Error in authCheck controller",error.message);
