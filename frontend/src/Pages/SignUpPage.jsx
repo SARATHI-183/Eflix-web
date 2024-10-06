@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { userAuthStore } from "../Store/authUser";
 
-const SignupPage = () => {
+const SignUpPage = () => {
     const {searchParams} = new URL(document.location);
     const emailValue = searchParams.get("email");
 
@@ -73,4 +73,4 @@ const SignupPage = () => {
   )
 }
 
-export default SignupPage
+export default SignUpPage
