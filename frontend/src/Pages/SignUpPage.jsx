@@ -58,7 +58,7 @@ const SignupPage = () => {
                     <button className="w-full py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700"
                         disabled={isSigningup}
                     >
-                        {isSigningUp ? "Loading..." : "Sign Up"}
+                        {isSigningup ? "Loading..." : "Sign Up"}
                     </button>
                 </form>
                 <div className="text-center text-gray-400">
