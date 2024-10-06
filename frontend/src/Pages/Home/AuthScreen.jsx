@@ -51,7 +51,7 @@ const AuthScreen = () => {
         <div className="h-2 w-full bg-[#232323]" aria-hidden='true'/>
 
         {/* 1st section */}
-        <div className="py-10 bg-black text-white">
+        <div className="bg-black text-white">
             <div className="flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col px-4 md:px-2">
                 {/*left side*/}
                 <div className="flex-1 text-center md:text-left">
@@ -60,7 +60,7 @@ const AuthScreen = () => {
                 </div>
                 {/* right side */}
                 <div className="flex-1 relative">
-                    <img src="/tv.png" alt="Tv image" className="mt-4 z-10 relative"/>
+                    <img src="/tv.png" alt="Tv image" className="z-10 relative"/>
                     <video className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-1/2 z-0" 
                         playsInline
                         autoPlay={true}
